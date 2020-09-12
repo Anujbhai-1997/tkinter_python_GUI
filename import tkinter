@@ -1,0 +1,5 @@
+form tkinter import *
+tk_root=tk()
+
+# gui logic
+tk_root.mainloop()
