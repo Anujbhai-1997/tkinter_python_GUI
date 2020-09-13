@@ -1,0 +1,17 @@
+from tkinter import*
+root=Tk()
+root.geometry("655x333")
+
+f1=Frame(root,bg="gray" , borderwidth=8,relief=SUNKEN )
+f1.pack(side="left", fill=Y )
+
+f2=Frame(root,borderwidth=8, bg="gray",relief=SUNKEN)
+f2.pack(side="top",fill=X)
+
+l=Label(f1,text="project Tkinter - pycharm")
+l.pack(pady=330,fill=Y)
+
+label=Label(f2,text="Welcome to forground text")
+label.pack(pady=335,fill=Y)
+
+root.mainloop()
