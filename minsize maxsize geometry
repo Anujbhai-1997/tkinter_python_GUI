@@ -1,0 +1,18 @@
+from tkinter import*
+root = Tk()
+
+# default open size
+root.geometry("444x444")
+
+# minimun size for minsize
+root.minsize(200,200)
+
+# maximum size fomaxsize
+root.maxsize(900,700)
+
+# python label if we are not pack of Label then does't show on output option 
+label =Label(text="radhe radhe krishna krishna")
+label.pack()
+
+
+root.mainloop()
