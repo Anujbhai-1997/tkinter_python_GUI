@@ -1,0 +1,10 @@
+# size of pycharm 733x434 
+# pycham community edition
+from tkinter import*
+root =Tk()
+root.geometry("733x434")
+root.minsize(200,200)
+root.maxsize(733,434)
+label=Label(text="pycham community editio")
+label.pack()
+root.mainloop()
