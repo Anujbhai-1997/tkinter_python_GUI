@@ -1,0 +1,31 @@
+from tkinter import*
+root = Tk()
+root.geometry("1000x1000")
+# root.minsize(1000,1000)
+# root.maxsize(1000,1000)
+root.title("Newstechnews")
+label=Label(text="Daily News", bg="black", fg="White", font=("comicsansms", 30  ,"bold"))
+# h1 => Smart home platform Wink suffering widespread outage
+# Smart home platform Wink is having a widespread outage, just over a month after it implemented a paid subscription plan for most of 
+# its previously free features. First reported by Android Police, the outage appears to have started Thursday. Users started getting email 
+# notices from the company on Friday apologizing for the outage, and Wink tweeted Friday afternoon that it was aware of an issue, and not
+# under any kind of attack.
+
+# We are aware of an issue impacting the Wink platform. We just wanted to let you know that we're still here, and we're not under attack. 
+# Rest assured that we are working diligently to get everyone back online. All updates will continue to be shared at https://t.co/WPpNKlhbQv.
+
+# — Wink (@TheWinkApp) September 11
+label.pack(fill= X)
+h=Label(text=" Smart home platform Wink suffering widespread outage" ,font=("comicsansms", 20, "bold"), fg="black")
+h.pack(padx=2,pady=80,anchor="nw")
+
+p=Label(text='''Smart home platform Wink is having a widespread outage, just over a month after it implemented a paid subscription 
+\n plan for most of its previously free features. First reported by Android Police, the outage appears to have started Thursday. Users started 
+\n getting email notices from the company on Friday apologizing for the outage, and Wink tweeted Friday afternoon that it was aware of an issue,
+\n and not under any kind of attack. We are aware of an issue impacting the Wink platform. We just wanted to let you know that we're still
+\n here, and we're not under attack. Rest assured that we are working diligently to get everyone back online. All updates will continue 
+\n to be shared at https://t.co/WPpNKlhbQv.
+
+— Wink (@TheWinkApp) September 11''' ,font=("comicsansms", 10),borderwidth=10 , bg="red" ,fg="white")
+p.pack(side = "left",fill=X, anchor="nw",padx=5)
+root.mainloop()
