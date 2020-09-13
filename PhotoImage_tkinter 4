@@ -1,0 +1,11 @@
+from tkinter import*
+root=Tk()
+
+root.geometry("400x400")
+
+# add photo in GUI console by photoimage function
+photo = PhotoImage(file = "logo.jpg")
+image_label = Label(image = photo)
+image_label.pack()
+
+root.mainloop()
