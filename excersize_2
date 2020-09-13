@@ -1,0 +1,14 @@
+    # 500x400 geometry 
+    # bottom strip
+    
+from tkinter import*
+root=Tk()
+root.geometry("500x400")
+root.minsize(500,400)
+root.maxsize(500,400)
+root.title("Newstechnews")
+
+label=Label(text="Ready", bg="red", fg="white", borderwidth=5, font=("comicsansms", 10  ,"bold"),relief=SUNKEN)
+label.pack(side="bottom",fill=X)
+
+root.mainloop()
