@@ -1,0 +1,27 @@
+from tkinter import*
+root=Tk()
+root.geometry("655x333")
+
+def enter():
+    print("Hello this is enter")
+
+frame=Frame(root,bg="red",borderwidth=4, relief=SUNKEN)
+frame.pack(side="left",)
+
+# button 1
+button_1=Button(frame,text="button 1", command=enter,fg="green")
+button_1.pack(padx=430,side="right", fill=X)
+
+# button 2
+button_2=Button(frame,text="button 2", command=enter,fg="blue")
+button_2.pack(padx=50, side="right", fill=X)
+
+# button 3
+button_3=Button(frame,text="button 3", command=enter,fg="red")
+button_3.pack(padx=50, side="right", fill=X)
+
+# button 4
+button_4=Button(frame,text="button 4", command=enter, fg="gray")
+button_4.pack(padx=50, side="right", fill=X)
+
+root.mainloop()
