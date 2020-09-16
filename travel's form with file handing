@@ -1,0 +1,48 @@
+from tkinter import*
+root=Tk()
+
+def getval():
+    print("it working")
+    
+root.geometry("500x400")
+# root.minsize(500,400)
+# root.maxsize(500,400)
+# label in welcome to Gupta travels
+Label(root,text="Welcome to Gupta Travel's", font=("comicsansms  15 bold"),pady=11,padx=60).grid(row=0,column=2)
+
+# image add
+
+# photo=PhotoImage(file='C:\\Users\\Anoop Gupta\\AppData\\Local\\Programs\\Python\\Python38-32\\Python program\\Apple.png')
+# Label(image=photo).grid(row=1,column=2)
+# label
+
+Label(root,text="Name").grid(row=1,column=2)
+Label(root,text="Phone").grid(row=2,column=2)
+Label(root,text="Gender").grid(row=3,column=2)
+Label(root,text="Emargency Contact").grid(row=4,column=2)
+Label(root,text="Payment Mode").grid(row=5,column=2)
+
+#entry
+namevalue=StringVar()
+phonevalue=StringVar()
+gendervalue=StringVar()
+emergencyvalue=StringVar()
+paymentvalue=StringVar()
+foodservicevalue=IntVar()
+
+Entry(root,text=namevalue).grid(row=1,column=3)
+Entry(root,text=phonevalue).grid(row=2,column=3)
+Entry(root,text=gendervalue).grid(row=3,column=3)
+Entry(root,text=emergencyvalue).grid(row=4,column=3)
+Entry(root,text=paymentvalue).grid(row=5,column=3)
+
+# checkbox
+foodservice=Checkbutton(text="want to prebook your meals ?", variable=foodservicevalue)
+foodservice.grid(row=6,column=3)
+
+# button & packing in a command
+Button(text="Submit to Gupta Travel's", command=getval).grid(row=7, column=3)  
+
+
+
+root.mainloop()
