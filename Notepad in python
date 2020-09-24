@@ -1,0 +1,140 @@
+# Made by Anuj Varshney:
+
+from tkinter import*
+from tkinter.filedialog import askopenfilename , asksaveasfilename
+import os
+if __name__ == '__main__':
+    root=Tk()
+    root.title("Notepad")
+    root.geometry("1380x700")
+    # root.iconbitmap("C:\\Users\\Anoop Gupta\\AppData\\Local\\Programs\\Python\\Python38-32\\Python program\\notepad_30848.ico")
+    
+    def new():
+        global file
+        root.title("untitled -Notepad")
+        file=None
+        textArea.delete(1.0,END)
+        
+        
+    def open_file():
+       global file
+       file=askopenfilename(defaultextension=".txt",filetypes=[("All Files","*.*"),("Text Documents","*.txt")])
+       if file == " ":
+            file=None
+       else:
+           root.title(os.path.basename(file)+"- Notepad")
+           textArea.delete(1.0,END)
+           f=open(file, "r")
+           textArea.insert(1.0,f.read())
+           f.close()
+       
+    
+    def save():
+        global file
+        if file == None:
+            file = asksaveasfilename(initialfile= "Untitle.txt",defaultextension=".txt",filetypes=[("All Files","*.*"),("Text Documents","*.txt")])
+            
+            if file=="":
+                file=None
+            else:
+                f = open(file,"w")
+                f.write(textArea.get(1.0,END))
+                f.close()
+                root.title(os.path.basename(file) + " - Notepad")
+                
+        else:
+            f = open(file,"w")
+            f.write(textArea.get(1.0,END))
+            f.close()
+    
+    def print_fun():
+        pass
+    
+    def cut():
+        textArea.event_generate(("<<Cut>>"))
+    
+    def copy():
+        textArea.event_generate(("<<Copy>>"))
+    
+    def paste():
+        textArea.event_generate(("<<Paste>>"))
+    
+    def delete():
+        textArea.event_generate(("<<Cut>>"))
+    
+    def selectall():
+        pass
+    
+    
+    textArea=Text(root,font="lucida 13")
+    file=None
+    textArea.pack(expand=True,fill="both")
+    # Lets create a menu bar
+    # File
+    top_bar=Menu(root)  
+    m1=Menu(top_bar,tearoff=0)
+    m1.add_command(label="New            Ctrl+N",command=new)
+    m1.add_command(label="Open...       Ctrl+O",command=open_file)
+    m1.add_command(label="Save            Ctrl+S",command=save)
+    m1.add_command(label="Save As...")
+    m1.add_separator()
+    m1.add_command(label="Page Setup...")
+    m1.add_command(label="Print...        Ctrl+P",command=print_fun)
+    m1.add_separator()
+    m1.add_command(label="Exit",command=root.destroy)
+    top_bar.add_cascade(label="File",menu=m1)
+
+    # Edit
+    m2=Menu(top_bar,tearoff=0)
+    m2.add_command(label="Undo            Ctrl+Z")
+    m2.add_separator()
+    m2.add_command(label="Cut             Ctrl+X",command=cut)
+    m2.add_command(label="Copy            Ctrl+C",command=copy)
+    m2.add_command(label="Paste           Ctrl+V",command=paste)
+    m2.add_command(label="Delete          Del",command=delete)
+    m2.add_separator()
+    m2.add_command(label="Find...         Ctrl+F")
+    m2.add_command(label="Find Next       F3")
+    m2.add_command(label="Replace...      Ctrl+H")
+    m2.add_command(label="Go To...        Ctrl+G")
+    m2.add_separator()
+    m2.add_command(label="Select All      Ctrl+A",command=selectall)
+    m2.add_command(label="Time/Date       F5")
+    top_bar.add_cascade(label="Edit",menu=m2)
+
+    # Formet
+    m3=Menu(top_bar,tearoff=0)
+    m3.add_command(label="Word Wrap")
+    m3.add_command(label="Font...")
+    top_bar.add_cascade(label="Formet",menu=m3)
+
+    # View
+    m4=Menu(top_bar,tearoff=0)
+    m4.add_command(label="Status Bar")
+    top_bar.add_cascade(label="View", menu=m4)
+
+    # Help
+    m5=Menu(top_bar,tearoff=0)
+    m5.add_command(label="View Help")
+    m5.add_separator()
+    m5.add_command(label="About Notepad")
+    top_bar.add_cascade(label="Help",menu=m5)
+
+    #other coding
+    # my_Slider=Scale(root,from_=0, to=100,tickinterval=5)
+    # my_Slider.set(20)
+    # my_Slider.pack(side="right",fill=Y)
+    # my_Slider=Scale(root,from_=0, to=100 ,orient=HORIZONTAL,tickinterval=5)
+    # my_Slider.set(20)
+    # my_Slider.pack(master=None, side="bottom",fill=X)
+    
+    #Scroll Bar
+    Scroll=Scrollbar(textArea)
+    Scroll.pack(side=RIGHT,fill=Y)
+    Scroll.config(command=textArea.yview)
+    textArea.config(yscrollcommand=Scroll.set)
+    
+    
+
+root.config(menu=top_bar)    
+root.mainloop() 
